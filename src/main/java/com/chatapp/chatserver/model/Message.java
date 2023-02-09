@@ -8,6 +8,10 @@ import lombok.*;
 @ToString
 public class Message {
 
+    private long id;
+    private long chatRoomId;
+    private long senderId;
+    private long receiverId;
     private String senderName;
     private String receiverName;
     private String messageBody;
