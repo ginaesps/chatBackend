@@ -12,5 +12,5 @@ public class Message {
     private String receiverName;
     private String messageBody;
     private String dateTime;
-    private Status status;
+    private MessageStatus messageStatus;
 }
