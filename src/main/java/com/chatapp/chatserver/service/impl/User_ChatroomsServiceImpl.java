@@ -46,12 +46,26 @@ public class User_ChatroomsServiceImpl implements User_ChatroomsService {
     }
 
     @Override
-    public void updateUserChatroomRelationship(user_chatrooms userChatroom) {
+    public user_chatrooms updateUserChatroomRelationship(user_chatrooms userChatroom) {
         userChatroomRepository.save(userChatroom);
+        return userChatroom;
     }
 
     @Override
     public void removeUserFromChatroom(user_chatrooms userChatroom) {
         userChatroomRepository.delete(userChatroom);
+    }
+
+    @Override
+    public user_chatrooms createUserChatroomRelationship(long userId, long chatroomId) {
+        user_chatrooms relationship = new user_chatrooms();
+        relationship.setUser_id(userId);
+        relationship.setChatroom_id(chatroomId);
+        return userChatroomRepository.save(relationship);
+    }
+
+    @Override
+    public void deleteUserChatroomRelationship(long id) {
+        userChatroomRepository.deleteById(id);
     }
 }

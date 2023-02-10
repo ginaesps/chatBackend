@@ -10,8 +10,12 @@ public interface User_ChatroomsService {
     List<user_chatrooms> findUserChatroomRelationshipsByUserId(long userId);
     List<user_chatrooms> findUserChatroomRelationshipByChatroomId(long chatroomId);
 
-    abstract List<user_chatrooms> findUserChatroomRelationshipsByChatroomId(long chatroomId);
+    List<user_chatrooms> findUserChatroomRelationshipsByChatroomId(long chatroomId);
 
-    void updateUserChatroomRelationship(user_chatrooms userChatroom);
+    user_chatrooms updateUserChatroomRelationship(user_chatrooms userChatroom);
     void removeUserFromChatroom(user_chatrooms userChatroom);
+
+    user_chatrooms createUserChatroomRelationship(long userId, long chatroomId);
+
+    void deleteUserChatroomRelationship(long id);
 }
