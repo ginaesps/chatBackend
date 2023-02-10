@@ -5,7 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.chatapp.chatserver.model.Message;
 
+import java.util.List;
+
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
+    List<Message> findByChatroomId(long chatroomId);
 }
