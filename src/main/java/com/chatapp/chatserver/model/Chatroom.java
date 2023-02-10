@@ -14,4 +14,10 @@ public class Chatroom {
     private long created_by;
     private Timestamp created_at;
     private Timestamp updated_at;
+
+    public void setName(String name) {
+    }
+
+    public void setCreatedBy(long createdBy) {
+    }
 }
