@@ -12,7 +12,7 @@ public class User {
     private long id;
     private String username;
     private UserStatus user_status;
-    private List<Long> chatroomIds;
+    private List<Long> chatroom_ids;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 }
