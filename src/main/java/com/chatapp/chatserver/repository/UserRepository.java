@@ -5,7 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.chatapp.chatserver.model.User;
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    List<User> findUsersByChatroomId(long chatroomId);
 }
