@@ -1,8 +1,8 @@
 package com.chatapp.chatserver.service.impl;
 
-import com.chatapp.chatserver.model.User;
+import com.chatapp.chatserver.model.Users;
 import com.chatapp.chatserver.model.UserStatus;
-import com.chatapp.chatserver.repository.UserRepository;
+import com.chatapp.chatserver.repository.UsersRepository;
 import com.chatapp.chatserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,42 +12,42 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    private UserRepository userRepository;
+    private UsersRepository usersRepository;
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public Users createUser(Users user) {
+        return usersRepository.save(user);
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<Users> getAllUsers() {
+        return usersRepository.findAll();
     }
 
     @Override
-    public Optional<User> findUserById(long id) {
-        return userRepository.findById(id);
+    public Optional<Users> findUserById(long id) {
+        return usersRepository.findById(id);
     }
 
     @Override
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public Users updateUser(Users user) {
+        return usersRepository.save(user);
     }
 
     @Override
     public void deleteUser(long id) {
-        userRepository.deleteById(id);
+        usersRepository.deleteById(id);
     }
 
     @Override
-    public User updateUserStatus(long id, UserStatus userStatus) {
-        User user = userRepository.getOne(id);
+    public Users updateUserStatus(long id, UserStatus userStatus) {
+        Users user = usersRepository.getOne(id);
         user.setUser_status(userStatus);
-        return userRepository.save(user);
+        return usersRepository.save(user);
     }
 
     @Override
-    public List<User> getUsersByChatroomId(long chatroomId) {
-        return userRepository.findUsersByChatroomId(chatroomId);
+    public List<Users> getUsersByChatroomId(long chatroomId) {
+        return usersRepository.findUsersByChatroomId(chatroomId);
     }
 }

@@ -8,11 +8,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User {
+public class Users {
     private long id;
     private String username;
     private UserStatus user_status;
-    private List<Long> chatroom_ids;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 }

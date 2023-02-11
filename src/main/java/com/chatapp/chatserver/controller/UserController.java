@@ -1,6 +1,6 @@
 package com.chatapp.chatserver.controller;
 
-import com.chatapp.chatserver.model.User;
+import com.chatapp.chatserver.model.Users;
 import com.chatapp.chatserver.model.UserStatus;
 import com.chatapp.chatserver.service.UserService;
 import org.apache.coyote.Response;
@@ -20,24 +20,24 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User newUser = userService.createUser(user);
+    public ResponseEntity<Users> createUser(@RequestBody Users user) {
+        Users newUser = userService.createUser(user);
         return new ResponseEntity<>(newUser, HttpStatus.OK);
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<Users>> getAllUsers() {
+        List<Users> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public Optional<User> findUserById(@PathVariable long id) {
+    public Optional<Users> findUserById(@PathVariable long id) {
         return userService.findUserById(id);
     }
 
     @PutMapping("/")
-    public User updateUser(@RequestBody User user) {
+    public Users updateUser(@RequestBody Users user) {
         return userService.updateUser(user);
     }
 
@@ -47,12 +47,12 @@ public class UserController {
     }
 
     @PutMapping("/{id}/status")
-    public User updateUserStatus(@PathVariable long id, @RequestParam ("UserStatus") UserStatus userStatus) {
+    public Users updateUserStatus(@PathVariable long id, @RequestParam ("UserStatus") UserStatus userStatus) {
         return userService.updateUserStatus(id, userStatus);
     }
 
     @GetMapping("/chatroom/{chatroomId}")
-    public List<User> getUsersByChatroomId(@PathVariable long chatroomId) {
+    public List<Users> getUsersByChatroomId(@PathVariable long chatroomId) {
         return userService.getUsersByChatroomId(chatroomId);
     }
 }
