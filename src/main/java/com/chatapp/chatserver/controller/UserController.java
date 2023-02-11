@@ -3,11 +3,9 @@ package com.chatapp.chatserver.controller;
 import com.chatapp.chatserver.model.Users;
 import com.chatapp.chatserver.model.UserStatus;
 import com.chatapp.chatserver.service.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
